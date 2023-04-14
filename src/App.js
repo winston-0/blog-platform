@@ -1,24 +1,33 @@
 import logo from './logo.svg';
 import './App.css';
+import { Card, Avatar, Tag, Space } from 'antd';
+import Meta from 'antd/es/card/Meta';
+import {
+  HeartOutlined
+} from '@ant-design/icons';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Card className='card'>
+      <div className='card__header'>
+        <div className='card-header-left'>
+          <Space align='baseline' direction='horizontal'>
+          <span className='card-header-title'>Hello world</span>
+          <HeartOutlined style={{ fontSize: '18px' }}/>
+          </Space> 
+          <Space size={8}>
+          <Tag style={{margin: 0, backgroundColor: 'white', border: '1px rgba(0, 0, 0, 0.5) solid'}} >hello</Tag>
+          <Tag style={{margin: 0, backgroundColor: 'white', border: '1px rgba(0, 0, 0, 0.5) solid'}} >bye</Tag>
+          </Space>
+        </div>
+        <Meta
+        avatar={<Avatar className='card-avatar' src="https://xsgames.co/randomusers/avatar.php?g=pixel" />}
+        title="Card title"
+        description="This is the description"
+        />
+      </div>
+      <span style={{fontSize: '12px', width: '670px'}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris  nisi ut aliquip ex ea commodo consequat.</span>
+    </Card>
   );
 }
 

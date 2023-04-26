@@ -1,0 +1,62 @@
+.header {
+    background-color: white;
+    padding-inline: 22px;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &__logo {
+        font-weight: 400;
+        font-size: 18px;
+        color: rgba(0, 0, 0, 0.85)
+    }
+    &__signIn {
+        font-size: 18px;
+        margin-right: 19px;
+        color: rgba(0, 0, 0, 0.85);
+    }
+    &__signUp {
+        font-size: 18px;
+        color: #52C41A;
+        border: 1px #52C41A solid;
+        padding: 6px 18px;
+        border-radius: 5px;
+    }
+    &__authorised {
+        display: flex;
+        align-items: center;
+        gap: 27px;
+    }
+    &__profile-info {
+        display: flex;
+        align-items: center;
+        gap: 13px;
+        cursor: pointer;
+    }
+    &__createArticle {
+        font-size: 14px;
+        color: #52C41A;
+        border: 1px #52C41A solid;
+        border-radius: 5px;
+        padding: 6px 10px;
+    }
+    &__profile-name {
+        font-weight: 400;
+        font-size: 18px;
+        color: rgba(0, 0, 0, 0.85);
+    }
+    &__logOut {
+        font-weight: 400;
+        font-size: 18px;
+        border: 1px solid rgba(0, 0, 0, 0.75);
+        border-radius: 5px;
+        padding: 6px 18px;
+        line-height: 28px;
+        color: rgba(0, 0, 0, 0.75);
+    }
+}
+
+body {
+    margin: 0;
+    box-sizing: border-box;
+}

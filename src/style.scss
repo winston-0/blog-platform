@@ -1,2 +1,25 @@
 @import './Atricle/Article.scss';
-@import './ArticleList/ArticleList.scss'
+@import './ArticleList/ArticleList.scss';
+@import './Header/Header.scss';
+@import './Footer/Footer.scss';
+@import './Pages/form.scss';
+@import './BlurSpinner/BlurSpinner.scss';
+
+body {
+    height: 100vh;
+}
+* {
+    box-sizing: border-box;
+}
+.blog-paltform-main {
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+}
+.app {
+    min-height: 100vh
+}
+
+html {
+    scroll-behavior: smooth;
+}

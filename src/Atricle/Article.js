@@ -1,4 +1,4 @@
-import { Card, Avatar, Tag, Space, Button } from 'antd';
+import { Card, Avatar, Space, Button } from 'antd';
 import Meta from 'antd/es/card/Meta';
 import Markdown from 'markdown-to-jsx';
 import {

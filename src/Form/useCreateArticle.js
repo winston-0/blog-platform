@@ -8,5 +8,12 @@ export const useCreateArticle = () => {
         const body = JSON.stringify({article: {...value, tagList}})
         createArticle(body);
     }
-    return onFinish
+    const initialValues = {
+        tagList: [
+          {
+            tag: null
+          }
+        ]
+      }
+    return [initialValues, onFinish]
 }

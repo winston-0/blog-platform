@@ -1,17 +1,14 @@
 import { Button, Form, Input, Space } from "antd"
-import { useCreateArticle } from "./useCreateArticle"
+import { useForm } from "antd/es/form/Form";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 
-const ArticleForm = () => {
-  const onFinish = useCreateArticle()
-  const initialValues = {
-    tagList: [
-      {
-        tag: null
-      }
-    ]
-  }
-    return (
-        <Form initialValues={initialValues} onFinish={onFinish} name="newArticle" style={{width: 874}} layout='vertical' colon={false} requiredMark={false}>
+
+const ArticleForm = ({useLogic}) => {
+    const [form] = Form.useForm()
+    const onFinish = useLogic(form);     
+    return ( 
+        <Form form={form} onFinish={onFinish} name="newArticle" style={{width: 874}} layout='vertical' colon={false} requiredMark={false}>
             <Form.Item name='title' label='Title'>
                 <Input placeholder="Title"></Input>
             </Form.Item>
@@ -40,11 +37,11 @@ const ArticleForm = () => {
                                 >
                                   <Input placeholder="Tag" />
                                 </Form.Item>
-                                {(key !== 0 || fields.length > 1) ?
+                                {(name !== 0 || fields.length > 1) ?
                                   <Button onClick={() => remove(name)} danger>Delete</Button>
                                   : null
                                 }  
-                                {key === fields.length - 1 ?
+                                {name === fields.length - 1 ?
                                   <Button style={{color: '#1890FF', borderColor: '#1890FF'}} onClick={() => add(name)}>Add tag</Button>
                                   : null
                                 }

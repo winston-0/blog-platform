@@ -95,3 +95,18 @@ import CustomError from "../customError/customError";
     return result
   }
 
+  export const editArticle = async (body, slug) => {
+    const token = localStorage.getItem('token');
+    console.log(slug)
+    const request = await fetch(basicUrl + `articles/${slug}`, {
+      headers: {
+        Authorization: `Token ${token}`,
+        'Content-Type': 'application/json;charset=utf-8'        
+      },
+      method: 'put',
+      body
+    })
+    const result = await request.json();
+    return result
+  }
+

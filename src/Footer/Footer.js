@@ -9,6 +9,7 @@ const Footer = () => {
     const location = useLocation();
     const dispatch = useDispatch()
     const articlesData = useSelector(state => state.articlesData.data);
+    const currentPage = useSelector(state => state.articlesData.page)
     if(location.pathname === '/') {
         return (
             <FooterAntd className="footer">
@@ -19,7 +20,7 @@ const Footer = () => {
                         window.scrollTo(0, 0)
                     }}
                     showSizeChanger={false} 
-                    defaultCurrent={1}
+                    defaultCurrent={currentPage}
                     total={Math.floor(articlesData.articlesCount / 10) + '0'}>
                 </Pagination>
                 : null}

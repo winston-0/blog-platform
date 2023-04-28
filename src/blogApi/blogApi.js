@@ -3,11 +3,18 @@ import CustomError from "../customError/customError";
   const  basicUrl = 'https://blog.kata.academy/api/';
     
   export const getArticles = async (page) => {
+        const token = localStorage.getItem('token');
         const url = new URL(basicUrl + 'articles')
         const offset = (page - 1) * 10
         url.searchParams.append('limit', 10)
         url.searchParams.append('offset', offset)
-        const request = await fetch(url)
+        const request = await fetch(url, {
+          method: 'get',
+          headers: {
+            Authorization: `Token ${token}`,
+            'Content-Type': 'application/json;charset=utf-8'
+          },
+        })
         const result = await request.json();
         return result
     }
@@ -97,7 +104,6 @@ import CustomError from "../customError/customError";
 
   export const editArticle = async (body, slug) => {
     const token = localStorage.getItem('token');
-    console.log(slug)
     const request = await fetch(basicUrl + `articles/${slug}`, {
       headers: {
         Authorization: `Token ${token}`,
@@ -110,3 +116,37 @@ import CustomError from "../customError/customError";
     return result
   }
 
+  export const deleteArticle = async (slug) => {
+    const token = localStorage.getItem('token');
+    await fetch(basicUrl + `articles/${slug}`, {
+      headers: {
+        Authorization: `Token ${token}`,      
+      },
+      method: 'delete',
+    })
+  }
+
+  export const favoriteArticle = async (slug) => {
+    const token = localStorage.getItem('token');
+    const request = await fetch(basicUrl + `articles/${slug}/favorite`, {
+      headers: {
+        Authorization: `Token ${token}`,      
+      },
+      method: 'post',
+    })
+    const result = await request.json();
+   
+    return result.article
+  }
+
+  export const unFavoriteArticle = async (slug) => {
+    const token = localStorage.getItem('token');
+    const request = await fetch(basicUrl + `articles/${slug}/favorite`, {
+      headers: {
+        Authorization: `Token ${token}`,      
+      },
+      method: 'delete',
+    })
+    const result = await request.json();
+    return result.article
+  }

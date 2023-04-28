@@ -1,6 +1,6 @@
 import { createArticle } from "../blogApi/blogApi"
 
-export const useCreateArticle = () => {
+export const useCreateArticle = (form) => {
     const onFinish = (value) => {
         const tagList = value.tagList.map(item => {
             return item.tag
@@ -15,5 +15,6 @@ export const useCreateArticle = () => {
           }
         ]
       }
-    return [initialValues, onFinish]
+    form.setFieldsValue(initialValues)
+    return onFinish
 }

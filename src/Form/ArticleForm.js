@@ -9,13 +9,19 @@ const ArticleForm = ({useLogic}) => {
     const onFinish = useLogic(form);     
     return ( 
         <Form form={form} onFinish={onFinish} name="newArticle" style={{width: 874}} layout='vertical' colon={false} requiredMark={false}>
-            <Form.Item name='title' label='Title'>
+            <Form.Item name='title' label='Title' rules={[
+              {required : true}
+            ]}>
                 <Input placeholder="Title"></Input>
             </Form.Item>
-            <Form.Item name='description' label='Short description'>
+            <Form.Item name='description' label='Short description' rules={[
+              {required : true}
+            ]}>
                 <Input placeholder="Description"></Input>
             </Form.Item>
-            <Form.Item name='body' label='Text'>
+            <Form.Item name='body' label='Text' rules={[
+              {required : true}
+            ]}>
                 <Input.TextArea autoSize={{minRows: 7, maxRows: 7}} placeholder="Text"></Input.TextArea>
             </Form.Item>
             <Form.List name='tagList'>

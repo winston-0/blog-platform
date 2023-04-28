@@ -10,7 +10,7 @@ const Footer = () => {
     const dispatch = useDispatch()
     const articlesData = useSelector(state => state.articlesData.data);
     const currentPage = useSelector(state => state.articlesData.page)
-    if(location.pathname === '/') {
+    if(location.pathname === '/' || location.pathname === '/articles') {
         return (
             <FooterAntd className="footer">
                 { articlesData !== null ?

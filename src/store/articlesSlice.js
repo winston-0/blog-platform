@@ -1,6 +1,7 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, current } from "@reduxjs/toolkit";
 import { getArticles, getSignleArticle } from "../blogApi/blogApi";
 import { editArticle } from "../blogApi/blogApi";
+import { favoriteArticle, unFavoriteArticle } from "../blogApi/blogApi";
 
 
 const initialState = {
@@ -24,6 +25,16 @@ export const fetchEditArticle = createAsyncThunk('fetchEditArticle', async (payl
     const {body, slug} = payload
     const request = await editArticle(body, slug);
     return request
+})
+
+export const favoriteArticleRequest = createAsyncThunk('favoriteArticleRequest', async (slug) => {
+    const request = await favoriteArticle(slug);
+    return request;
+})
+
+export const unFavoriteArticleRequest = createAsyncThunk('unFavoriteArticleRequest', async (slug) => {
+    const request = await unFavoriteArticle(slug)
+    return request;
 })
 
 const articlesSlice = createSlice({
@@ -53,6 +64,20 @@ const articlesSlice = createSlice({
             state.oneArticle = action.payload;
         }).addCase(fetchEditArticle.pending, state => {
             state.loading = true
+        }).addCase(favoriteArticleRequest.fulfilled, (state, action) => {
+            state.data.articles.forEach(item => {
+                if(item.slug === action.payload.slug) {
+                    item.favorited = true
+                    item.favoritesCount += 1
+                }
+            });
+        }).addCase(unFavoriteArticleRequest.fulfilled, (state, action) => {
+            state.data.articles.forEach(item => {
+                if(item.slug === action.payload.slug) {
+                    item.favorited = false
+                    item.favoritesCount -= 1
+                }
+            });
         })
     }
 })

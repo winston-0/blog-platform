@@ -92,7 +92,6 @@ const profileSlice = createSlice({
             state.loading = false;
             state.error += 1
         }).addCase(requestToUpdateUser.fulfilled, (state, action) => {
-            console.log(action.payload)
             state.loading = false;
             state.email = action.payload.email;
             state.name = action.payload.username;

@@ -11,7 +11,7 @@ import OneArticlePage from './Pages/OneArticlePage'
 import SignUpPage from './Pages/SignUpPage'
 import SignInPage from './Pages/SignInPage'
 import EditProfilePage from './Pages/EditProfilePage'
-import { ThemeProvider } from './HOC/ThemeProvider'
+import { ThemeProvider } from './HOC/themeProvider'
 import CreateArticlePage from './Pages/CreateArticlePage'
 import EditArticlePage from './Pages/EditArticlePage'
 

@@ -1,12 +1,17 @@
-import { createArticle } from '../blogApi/blogApi'
+import { useDispatch } from 'react-redux'
+import { useHistory } from 'react-router-dom'
+
+import { requestCreateArticle } from '../store/articlesSlice'
 
 export const useCreateArticle = (form) => {
+  const history = useHistory()
+  const dispatch = useDispatch()
   const onFinish = (value) => {
     const tagList = value.tagList.map((item) => {
       return item.tag
     })
     const body = JSON.stringify({ article: { ...value, tagList } })
-    createArticle(body)
+    dispatch(requestCreateArticle(body)).then(() => history.push('/articles'))
   }
   const initialValues = {
     tagList: [

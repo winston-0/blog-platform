@@ -1,6 +1,13 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
-import { getArticles, getSignleArticle, editArticle, favoriteArticle, unFavoriteArticle } from '../blogApi/blogApi'
+import {
+  getArticles,
+  getSignleArticle,
+  editArticle,
+  favoriteArticle,
+  unFavoriteArticle,
+  createArticle,
+} from '../blogApi/blogApi'
 
 const initialState = {
   data: null,
@@ -17,6 +24,11 @@ export const fetchArticles = createAsyncThunk('fetchArticles', async (page) => {
 export const fetchSingleArticle = createAsyncThunk('fetchSignleArticle', async (id) => {
   const fetchedArticle = await getSignleArticle(id)
   return fetchedArticle
+})
+
+export const requestCreateArticle = createAsyncThunk('requestCreateArticle', async (body) => {
+  const request = await createArticle(body)
+  return request
 })
 
 export const fetchEditArticle = createAsyncThunk('fetchEditArticle', async (payload) => {
@@ -61,6 +73,12 @@ const articlesSlice = createSlice({
       .addCase(fetchSingleArticle.fulfilled, (state, action) => {
         state.loading = false
         state.oneArticle = action.payload
+      })
+      .addCase(requestCreateArticle.pending, (state) => {
+        state.loading = true
+      })
+      .addCase(requestCreateArticle.fulfilled, (state) => {
+        state.loading = false
       })
       .addCase(fetchEditArticle.fulfilled, (state, action) => {
         state.loading = false

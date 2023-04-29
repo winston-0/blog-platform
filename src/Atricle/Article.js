@@ -9,6 +9,7 @@ import ArticleUserButtons from './ArticleUserButtons'
 import ArticleFavorite from './ArticleFavorite'
 
 const Article = ({ data, type = 'inList' }) => {
+  const loading = useSelector((state) => state.articlesData.loading)
   const history = useHistory()
   const loggedIn = useSelector((state) => state.profileData.loggedIn)
   const username = useSelector((state) => state.profileData.name)
@@ -28,7 +29,7 @@ const Article = ({ data, type = 'inList' }) => {
   const bodyContent = type === 'singlePage' ? <Markdown className="article__body">{data.body}</Markdown> : null
 
   return (
-    <Card className={cardClassName}>
+    <Card loading={loading ? true : false} className={cardClassName}>
       <div className="card__header">
         <div className="card-header-left">
           <Space align="baseline" direction="horizontal">

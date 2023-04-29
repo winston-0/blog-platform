@@ -1,10 +1,7 @@
-import ArticleList from "../ArticleList/ArticleList";
-import { Content } from "antd/es/layout/layout";
+import ArticleList from '../ArticleList/ArticleList'
 
 const MainPage = () => {
-    return (
-        <ArticleList/>
-    )
+  return <ArticleList />
 }
 
-export default MainPage;
+export default MainPage

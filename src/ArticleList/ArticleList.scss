@@ -1,14 +1,15 @@
-ul, li {
-    margin: 0;
-    padding: 0;
-    list-style: none;
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .article-list {
-    display: flex;
-    flex-direction: column;
-    gap: 26px;
-    align-items: center;
-    padding-top: 26px;
-    padding-bottom: 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  align-items: center;
+  padding-top: 26px;
+  padding-bottom: 26px;
 }

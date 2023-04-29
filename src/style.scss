@@ -6,20 +6,20 @@
 @import './BlurSpinner/BlurSpinner.scss';
 
 body {
-    height: 100vh;
+  height: 100vh;
 }
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 .blog-paltform-main {
-    height: fit-content;
-    display: flex;
-    justify-content: center;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
 }
 .app {
-    min-height: 100vh
+  min-height: 100vh;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }

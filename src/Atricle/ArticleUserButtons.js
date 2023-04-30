@@ -8,7 +8,8 @@ const ArticleUserButtons = () => {
   const history = useHistory()
   const match = useRouteMatch()
   const onDelete = () => {
-    deleteArticle(match.params.slug).then(() => history.push('/articles'))
+    deleteArticle(match.params.slug)
+    history.push('/articles')
   }
   return (
     <Space size={12}>

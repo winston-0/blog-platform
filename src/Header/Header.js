@@ -1,9 +1,10 @@
 import { Avatar } from 'antd'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useHistory } from 'react-router-dom'
-import { useEffect } from 'react'
 
-import { logOut, relogin } from '../store/profileSlice'
+import { logOut } from '../store/profileSlice'
+
+import avatarPlaceholder from './Rectangle 1.png'
 
 const Header = () => {
   const history = useHistory()
@@ -12,11 +13,7 @@ const Header = () => {
   const name = useSelector((state) => state.profileData.name)
   const tockenExist = localStorage.getItem('token')
   const profileImage = useSelector((state) => state.profileData.profileImage)
-  useEffect(() => {
-    if (localStorage.getItem('token')) {
-      dispatch(relogin())
-    }
-  }, [])
+
   const onLogOut = () => {
     localStorage.removeItem('token')
     dispatch(logOut())
@@ -41,7 +38,7 @@ const Header = () => {
       </Link>
       <div onClick={onProfile} className="header__profile-info">
         <span className="header__profile-name">{name}</span>
-        <Avatar src={profileImage} size={46} />
+        <Avatar src={profileImage || avatarPlaceholder} size={46} />
       </div>
       <a onClick={onLogOut} className="header__logOut">
         Log Out

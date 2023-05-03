@@ -13,13 +13,40 @@ const ArticleForm = ({ useLogic }) => {
       colon={false}
       requiredMark={false}
     >
-      <Form.Item name="title" label="Title" rules={[{ required: true }]}>
+      <Form.Item
+        name="title"
+        label="Title"
+        rules={[
+          { required: true },
+          {
+            whitespace: true,
+          },
+        ]}
+      >
         <Input placeholder="Title"></Input>
       </Form.Item>
-      <Form.Item name="description" label="Short description" rules={[{ required: true }]}>
+      <Form.Item
+        name="description"
+        label="Short description"
+        rules={[
+          { required: true },
+          {
+            whitespace: true,
+          },
+        ]}
+      >
         <Input placeholder="Description"></Input>
       </Form.Item>
-      <Form.Item name="body" label="Text" rules={[{ required: true }]}>
+      <Form.Item
+        name="body"
+        label="Text"
+        rules={[
+          { required: true },
+          {
+            whitespace: true,
+          },
+        ]}
+      >
         <Input.TextArea autoSize={{ minRows: 7, maxRows: 7 }} placeholder="Text"></Input.TextArea>
       </Form.Item>
       <Form.List name="tagList">
@@ -40,6 +67,9 @@ const ArticleForm = ({ useLogic }) => {
                     {
                       required: true,
                       message: 'Missing Tag',
+                    },
+                    {
+                      whitespace: true,
                     },
                   ]}
                 >

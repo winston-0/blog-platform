@@ -1,9 +1,9 @@
-@import './Atricle/Article.scss';
-@import './ArticleList/ArticleList.scss';
-@import './Header/Header.scss';
-@import './Footer/Footer.scss';
-@import './Pages/form.scss';
-@import './BlurSpinner/BlurSpinner.scss';
+@import './components/Atricle/Article.scss';
+@import './components/ArticleList/ArticleList.scss';
+@import './components/Header/Header.scss';
+@import './components/Footer/Footer.scss';
+@import './components/Pages/form.scss';
+@import './components/BlurSpinner/BlurSpinner.scss';
 
 body {
   height: 100vh;

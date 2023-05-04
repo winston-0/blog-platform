@@ -5,6 +5,7 @@ import { useEffect } from 'react'
 import { fetchEditArticle, fetchSingleArticle } from '../store/articlesSlice'
 
 export const useEditArticle = (form) => {
+  const name = useSelector((state) => state.profileData.name)
   const match = useRouteMatch()
   const history = useHistory()
   const slug = match.params.slug
@@ -28,6 +29,10 @@ export const useEditArticle = (form) => {
   }, [])
   useEffect(() => {
     if (oneArticle) {
+      console.log(name)
+      if (oneArticle.article.author.username !== name) {
+        history.push('/')
+      }
       let { title, description, body, tagList } = oneArticle.article
       tagList = tagList.map((item) => {
         return { tag: item }

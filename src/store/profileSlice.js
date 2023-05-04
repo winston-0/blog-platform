@@ -7,7 +7,7 @@ const initialState = {
   name: null,
   profileImage: null,
   email: null,
-  loading: localStorage.getItem('token') ? true : false,
+  loading: false,
   error: 0,
   errorList: null,
 }
@@ -80,6 +80,9 @@ const profileSlice = createSlice({
         state.email = action.payload.email
         state.name = action.payload.username
         state.profileImage = action.payload.image
+      })
+      .addCase(relogin.pending, (state) => {
+        state.loading = true
       })
       .addCase(login.fulfilled, (state, action) => {
         state.loggedIn = true

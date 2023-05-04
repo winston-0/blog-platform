@@ -5,10 +5,14 @@ import format from 'date-fns/format'
 import { useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 
+import avatarPlaceholder from '../Header/Rectangle 1.png'
+
 import ArticleUserButtons from './ArticleUserButtons'
 import ArticleFavorite from './ArticleFavorite'
+import { useFetchImage } from './useFetchImage'
 
 const Article = ({ data, type = 'inList' }) => {
+  const [imageLoading, image] = useFetchImage(data.author.image)
   const loading = useSelector((state) => state.articlesData.loading)
   const history = useHistory()
   const loggedIn = useSelector((state) => state.profileData.loggedIn)
@@ -42,7 +46,7 @@ const Article = ({ data, type = 'inList' }) => {
           <Space size={8}>{showTags(data.tagList)}</Space>
         </div>
         <Meta
-          avatar={<Avatar className="card-avatar" src={data.author.image} />}
+          avatar={<Avatar className="card-avatar" src={imageLoading ? avatarPlaceholder : image} />}
           title={data.author.username}
           description={format(new Date(data.createdAt), 'PP')}
         />

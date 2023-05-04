@@ -2,7 +2,7 @@ import React from 'react'
 import { Button, Form, Input } from 'antd'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { requestToUpdateUser } from '../store/profileSlice'
+import { requestToUpdateUser } from '../../store/profileSlice'
 
 import { useErrorLogic } from './useErrorLogic'
 

@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { HeartOutlined, HeartFilled } from '@ant-design/icons'
 
-import { favoriteArticleRequest, unFavoriteArticleRequest } from '../store/articlesSlice'
+import { favoriteArticleRequest, unFavoriteArticleRequest } from '../../store/articlesSlice'
 
 const ArticleFavorite = ({ isFavourite, slug }) => {
   const loggedIn = useSelector((state) => state.profileData.loggedIn)

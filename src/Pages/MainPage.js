@@ -1,4 +1,4 @@
-import ArticleList from '../ArticleList/ArticleList'
+import ArticleList from '../components/ArticleList/ArticleList'
 
 const MainPage = () => {
   return <ArticleList />

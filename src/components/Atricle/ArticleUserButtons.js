@@ -1,7 +1,7 @@
 import { Space, Button, Popconfirm } from 'antd'
 import { useHistory, useLocation, useRouteMatch } from 'react-router-dom'
 
-import { deleteArticle } from '../blogApi/blogApi'
+import { deleteArticle } from '../../blogApi/blogApi'
 
 const ArticleUserButtons = () => {
   const location = useLocation()

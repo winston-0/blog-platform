@@ -3,7 +3,7 @@ import { Footer as FooterAntd } from 'antd/es/layout/layout'
 import { useDispatch, useSelector } from 'react-redux'
 import { useLocation } from 'react-router'
 
-import { changePage } from '../store/articlesSlice'
+import { changePage } from '../../store/articlesSlice'
 
 const Footer = () => {
   const location = useLocation()

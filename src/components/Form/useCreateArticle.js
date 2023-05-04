@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 
-import { requestCreateArticle } from '../store/articlesSlice'
+import { requestCreateArticle } from '../../store/articlesSlice'
 
 export const useCreateArticle = (form) => {
   const history = useHistory()

@@ -2,7 +2,7 @@ import React from 'react'
 import { Button, Divider, Form, Input, Checkbox } from 'antd'
 import { useDispatch } from 'react-redux'
 
-import { requestToSignUp } from '../store/profileSlice'
+import { requestToSignUp } from '../../store/profileSlice'
 
 import { useErrorLogic } from './useErrorLogic'
 

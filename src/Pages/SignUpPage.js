@@ -2,8 +2,8 @@ import { Link, useHistory } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { useEffect } from 'react'
 
-import SignUpForm from '../Form/SignUpForm'
-import BlurSpinner from '../BlurSpinner/BlurSpinner'
+import SignUpForm from '../components/Form/SignUpForm'
+import BlurSpinner from '../components/BlurSpinner/BlurSpinner'
 
 const SignUpPage = () => {
   const loading = useSelector((state) => state.profileData.loading)

@@ -2,8 +2,8 @@ import React, { useEffect } from 'react'
 import { Button, Form, Input } from 'antd'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { login, clearErrors } from '../store/profileSlice'
-import useNotification from '../useNotification/useNotification'
+import { login, clearErrors } from '../../store/profileSlice'
+import useNotification from '../../useNotification/useNotification'
 
 const SignInForm = () => {
   const [contextHolder, openNotificationWithIcon] = useNotification('email or password is invalid')

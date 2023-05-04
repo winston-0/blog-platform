@@ -2,8 +2,8 @@ import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { Link, useHistory } from 'react-router-dom'
 
-import SignInForm from '../Form/SignInForm'
-import BlurSpinner from '../BlurSpinner/BlurSpinner'
+import SignInForm from '../components/Form/SignInForm'
+import BlurSpinner from '../components/BlurSpinner/BlurSpinner'
 
 const SignInPage = () => {
   const history = useHistory()

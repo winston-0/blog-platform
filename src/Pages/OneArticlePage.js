@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useParams } from 'react-router'
 import { useDispatch, useSelector } from 'react-redux'
 
-import Article from '../Atricle/Article'
+import Article from '../components/Atricle/Article'
 import { fetchSingleArticle, clearCurrentArticle } from '../store/articlesSlice'
 
 const OneArticlePage = () => {

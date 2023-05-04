@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { clearErrors } from '../store/profileSlice'
-import useNotification from '../useNotification/useNotification'
+import { clearErrors } from '../../store/profileSlice'
+import useNotification from '../../useNotification/useNotification'
 
 export const useErrorLogic = (form) => {
   const dispatch = useDispatch()

@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 
-import EditProfileForm from '../Form/EditProfileForm'
-import BlurSpinner from '../BlurSpinner/BlurSpinner'
+import EditProfileForm from '../components/Form/EditProfileForm'
+import BlurSpinner from '../components/BlurSpinner/BlurSpinner'
 
 const EditProfilePage = () => {
   const loggedIn = useSelector((state) => state.profileData.loggedIn)

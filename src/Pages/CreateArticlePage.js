@@ -1,9 +1,9 @@
 import { useSelector } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 
-import ArticleForm from '../Form/ArticleForm'
-import { useCreateArticle } from '../Form/useCreateArticle'
-import BlurSpinner from '../BlurSpinner/BlurSpinner'
+import ArticleForm from '../components/Form/ArticleForm'
+import { useCreateArticle } from '../components/Form/useCreateArticle'
+import BlurSpinner from '../components/BlurSpinner/BlurSpinner'
 
 const CreateArticlePage = () => {
   const loggedIn = useSelector((state) => state.profileData.loggedIn)

@@ -2,7 +2,7 @@ import { Avatar } from 'antd'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useHistory } from 'react-router-dom'
 
-import { logOut } from '../store/profileSlice'
+import { logOut } from '../../store/profileSlice'
 
 import avatarPlaceholder from './Rectangle 1.png'
 

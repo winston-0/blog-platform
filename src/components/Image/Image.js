@@ -4,6 +4,9 @@ import avatarPlaceholder from '../Header/Rectangle 1.png'
 
 const Image = ({ url }) => {
   const [content, setContent] = useState(url)
+  if (!url && !content) {
+    setContent(avatarPlaceholder)
+  }
   const onShowPlaceholder = (e) => {
     const img = e.target
     if (img.naturalWidth === 1) {

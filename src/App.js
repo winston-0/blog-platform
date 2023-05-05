@@ -61,7 +61,7 @@ function App() {
                 <Route path={pathes.profile}>
                   <EditProfilePage />
                 </Route>
-                <Route path={pathes.editArticle}>
+                <Route path={pathes.newArticle}>
                   <CreateArticlePage />
                 </Route>
                 <Route path={pathes.editArticle}>

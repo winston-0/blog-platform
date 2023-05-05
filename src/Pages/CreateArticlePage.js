@@ -17,6 +17,8 @@ const CreateArticlePage = () => {
         {loading ? <BlurSpinner /> : null}
       </section>
     )
+  } else if (localStorage.getItem('token')) {
+    return null
   } else {
     return <Redirect to="/sign-in" />
   }

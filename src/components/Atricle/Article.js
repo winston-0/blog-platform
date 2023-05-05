@@ -5,18 +5,19 @@ import format from 'date-fns/format'
 import { useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 
-import avatarPlaceholder from '../Header/Rectangle 1.png'
+import Image from '../Image/Image'
 
 import ArticleUserButtons from './ArticleUserButtons'
 import ArticleFavorite from './ArticleFavorite'
-import { useFetchImage } from './useFetchImage'
 
 const Article = ({ data, type = 'inList' }) => {
-  const [imageLoading, image] = useFetchImage(data.author.image)
   const loading = useSelector((state) => state.articlesData.loading)
   const history = useHistory()
   const loggedIn = useSelector((state) => state.profileData.loggedIn)
   const username = useSelector((state) => state.profileData.name)
+  const onerror = (e) => {
+    console.log(e)
+  }
   const showTags = (tagList) => {
     if (tagList === null) {
       return null
@@ -33,7 +34,7 @@ const Article = ({ data, type = 'inList' }) => {
   const bodyContent = type === 'singlePage' ? <Markdown className="article__body">{data.body}</Markdown> : null
 
   return (
-    <Card loading={loading ? true : false} className={cardClassName}>
+    <Card onError={(e) => onerror(e)} loading={loading ? true : false} className={cardClassName}>
       <div className="card__header">
         <div className="card-header-left">
           <Space align="baseline" direction="horizontal">
@@ -46,7 +47,7 @@ const Article = ({ data, type = 'inList' }) => {
           <Space size={8}>{showTags(data.tagList)}</Space>
         </div>
         <Meta
-          avatar={<Avatar className="card-avatar" src={imageLoading ? avatarPlaceholder : image} />}
+          avatar={<Avatar className="card-avatar" src={<Image url={data.author.image} />} />}
           title={data.author.username}
           description={format(new Date(data.createdAt), 'PP')}
         />

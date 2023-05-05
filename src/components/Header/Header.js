@@ -3,8 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link, useHistory } from 'react-router-dom'
 
 import { logOut } from '../../store/profileSlice'
-
-import avatarPlaceholder from './Rectangle 1.png'
+import Image from '../Image/Image'
 
 const Header = () => {
   const history = useHistory()
@@ -38,7 +37,7 @@ const Header = () => {
       </Link>
       <div onClick={onProfile} className="header__profile-info">
         <span className="header__profile-name">{name}</span>
-        <Avatar src={profileImage || avatarPlaceholder} size={46} />
+        <Avatar src={<Image url={profileImage} />} size={46} />
       </div>
       <a onClick={onLogOut} className="header__logOut">
         Log Out

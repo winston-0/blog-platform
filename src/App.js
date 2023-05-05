@@ -25,6 +25,16 @@ function App() {
     }
   }, [])
 
+  const pathes = {
+    home: '/',
+    articles: '/articles/',
+    singleArticle: '/articles/:slug',
+    signIn: '/sign-in',
+    signUp: '/sign-up',
+    profile: '/profile',
+    newArticle: '/new-article',
+    editArticle: '/articles/:slug/edit',
+  }
   return (
     <ConfigProvider>
       <Router>
@@ -33,28 +43,28 @@ function App() {
             <Header></Header>
             <Content className="blog-paltform-main">
               <Switch>
-                <Route exact path="/">
+                <Route exact path={pathes.home}>
                   <MainPage />
                 </Route>
-                <Route exact path="/articles/">
+                <Route exact path={pathes.articles}>
                   <MainPage />
                 </Route>
-                <Route exact path="/articles/:slug">
+                <Route exact path={pathes.singleArticle}>
                   <OneArticlePage />
                 </Route>
-                <Route path="/sign-in">
+                <Route path={pathes.signIn}>
                   <SignInPage />
                 </Route>
-                <Route path="/sign-up">
+                <Route path={pathes.signUp}>
                   <SignUpPage />
                 </Route>
-                <Route path="/profile">
+                <Route path={pathes.profile}>
                   <EditProfilePage />
                 </Route>
-                <Route path="/new-article">
+                <Route path={pathes.profile}>
                   <CreateArticlePage />
                 </Route>
-                <Route path="/articles/:slug/edit">
+                <Route path={pathes.editArticle}>
                   <EditArticlePage />
                 </Route>
                 <Route>
